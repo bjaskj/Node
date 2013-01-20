@@ -1,0 +1,1 @@
+@"%ProgramFiles%\nodejs\node.exe" %APPDATA%\npm\node_modules\coffee-script\bin\coffee app.coffee

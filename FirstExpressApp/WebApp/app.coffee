@@ -4,6 +4,8 @@ user = require './routes/user'
 http = require 'http'
 path = require 'path'
 expressLayouts = require 'express-ejs-layouts'
+coffeeScript = require 'coffee-script'
+coffeeScriptConnect = require 'connect-coffee-script'
 
 app = express()
 
@@ -20,9 +22,15 @@ app.configure(() ->
   app.use express.methodOverride()
   app.use app.router
   app.use require('less-middleware')({
-      src: __dirname + '/public'
+      dest: __dirname + '/public'
+      src: __dirname + '/src'
     })
-  app.use express.static(path.join(__dirname, 'public'))
+  app.use coffeeScriptConnect({
+      dest: __dirname + '/public'
+      src: __dirname + '/src'
+      bare: true
+    })
+  app.use express.static(path.join(__dirname, '/public'))
 )
 
 app.configure 'development', () ->

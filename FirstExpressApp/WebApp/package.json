@@ -9,6 +9,9 @@
     "express": "3.0.6",
     "ejs": "*",
     "less-middleware": "*",
-    "express-ejs-layouts": "*"
+    "express-ejs-layouts": "*",
+    "coffee-script": "*",
+    "connect-coffee-script": "*",
+    "connect": "*"
   }
 }
