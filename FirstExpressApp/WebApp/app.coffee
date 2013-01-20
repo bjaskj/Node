@@ -24,6 +24,7 @@ app.configure(() ->
   app.use require('less-middleware')({
       dest: __dirname + '/public'
       src: __dirname + '/src'
+      compress: true
     })
   app.use coffeeScriptConnect({
       dest: __dirname + '/public'
@@ -34,12 +35,15 @@ app.configure(() ->
 )
 
 app.configure 'development', () ->
+  console.log 'Starting in development mode'
+
   app.use express.errorHandler({
-  dumpExceptions: true
-  showStack     : true
+    dumpExceptions: true
+    showStack     : true
   })
 
 app.configure 'production', () ->
+  console.log 'Starting in production mode'
   app.use express.errorHandler()
 
 app.get '/', routes.index
