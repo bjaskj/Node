@@ -1,0 +1,12 @@
+.font-normal {
+  color: #333333;
+  font: 16px Arial, sans-serif;
+}
+body {
+  padding: 50px;
+  color: #333333;
+  font: 16px Arial, sans-serif;
+}
+a {
+  color: #990000;
+}
