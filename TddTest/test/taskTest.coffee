@@ -61,6 +61,22 @@ describe 'TaskList', ->
     taskList.remove taskList.tasks[i]
     expect(taskList.tasks[i]).to.not.be.ok
 
+  it 'should print number of completed tasks', ->
+    taskList = new TaskList
+    task1 = new Task 'task 1'
+    task2 = new Task 'task 2'
+    task3 = new Task 'task 3'
+    task4 = new Task 'task 4'
+    task5 = new Task 'task 5'
+    taskList.add task1
+    taskList.add task2
+    taskList.add task3
+    taskList.add task4
+    taskList.add task5
+    task1.complete()
+    desiredOutput = "1 of 5 tasks completed."
+    taskList.printReport().should.equal desiredOutput
+
   it 'should print out the list', ->
     taskList = new TaskList
     task0 = new Task 'buy milk'
